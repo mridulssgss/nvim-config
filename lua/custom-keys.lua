@@ -28,6 +28,4 @@ map('n', 'dl', [[:lua require'dap'.run_last()<CR>]], {})
 -- Press Ctrl+d to toggle debug mode, will remove NvimTree also
 map('n', '<C-d>', [[:lua require'dapui'.toggle()<CR>]], {})
 
--- update leader key to ,
-vim.g.mapleader = ","
-vim.opt.number = true
+

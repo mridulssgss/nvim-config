@@ -12,7 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 plugins = {
-	-- Configurations will go here soon
+    -- themes
+    "EdenEast/nightfox.nvim",
+    -- Package manager
 	 'williamboman/mason.nvim',
 	 'williamboman/mason-lspconfig.nvim',
 	 'neovim/nvim-lspconfig',
@@ -25,6 +27,9 @@ plugins = {
 	 'hrsh7th/cmp-path',                             
 	 'hrsh7th/cmp-buffer',
 	 'hrsh7th/vim-vsnip',
+	-- vim-illuminate
+	 'RRethy/vim-illuminate',
+	-- 
 	-- File explorer tree
 	 {
 		'nvim-tree/nvim-tree.lua',
@@ -35,19 +40,15 @@ plugins = {
 	-- DAP for debugging
 	 'mfussenegger/nvim-dap',
 	-- UI for DAP
-	 { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap"} },
-
-	-- Treesitter
-	 {
-		-- recommended packer way of installing it is to run this function, copied from documentation
-		'nvim-treesitter/nvim-treesitter',
-		build = function()
-			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-			ts_update()
-		end,
-
+	 { "rcarriga/nvim-dap-ui", dependencies = 
+	 	{
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio"
+		} 
 	},
 
+	-- Adding nvim tree-sitter. See docs: https://github.com/nvim-treesitter/nvim-treesitter/
+	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	-- Telescope d to fuzzy search files
 	 {
 		'nvim-telescope/telescope.nvim', version = '0.1.3',
@@ -62,23 +63,46 @@ plugins = {
 		end
 	},
 	-- Adding status bar. see docs: https://github.com/nvim-lualine/lualine.nvim 
-	 {
+	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
 	},
-	-- Adding lsp sage. See docs @ https://nvimdev.github.io
-	{
-		'nvimdev/lspsaga.nvim',
-		config = function()
-			require('lspsaga').setup({})
-	   	 end,
-	   	 dependencies = {
-       		 	'nvim-treesitter/nvim-treesitter', -- optional
-		 	'nvim-tree/nvim-web-devicons'     -- optional
-		}
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	-- Setting up gitsigns for git decoration and git blame. See docs: https://github.com/lewis6991/gitsigns.nvim
+    {
+        "lewis6991/gitsigns.nvim",
+        event = "BufReadPre",
+        config = function()
+            require("gitsigns").setup({
+                signs = {
+                    add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+                    change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+                    delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+                    topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+                    changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+                    untracked = { hl = "GitSignsAdd", text = "┆", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+            },
+        })
+    end,
+    },
+	-- Add lsp-saga for ide like features. See docs: https://nvimdev.github.io/lspsaga/
+ 	{
+             	'nvimdev/lspsaga.nvim',
+    		config = function()
+        		require('lspsaga').setup({
+				lightbulb = {
+					sign = false
+				}
+			})
+    		end,
+    		dependencies = {
+        		'nvim-treesitter/nvim-treesitter', -- optional
+        		'nvim-tree/nvim-web-devicons'     -- optional
+    		}
 	}
 }
 
 opts = {}
 
 require("lazy").setup(plugins, opts)
+

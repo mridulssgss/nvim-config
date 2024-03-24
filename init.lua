@@ -1,4 +1,8 @@
+-- Setting important key binding
+require('custom-commands')
+-- installing plugins
 require('plugins')
+require('colorscheme')
 require('mason-config')
 require('gopls')
 require('code-completion')
@@ -9,3 +13,5 @@ require('syntax-highlight')
 require('file-finder')
 require('status')
 require('lsp-saga')
+require('tree-sitter')
+require('gitsign-config')
