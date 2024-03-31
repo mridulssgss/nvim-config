@@ -61,8 +61,7 @@ plugins = {
 	-- Telescope d to fuzzy search files
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.3",
-		dependencies = { { "nvim-lua/plenary.nvim" } },
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	-- adding ability to selected autopairs see https://github.com/windwp/nvim-autopairs?tab=readme-ov-file for docs
 	{
@@ -142,6 +141,8 @@ plugins = {
 	},
 	-- Adding support for formatter
 	"stevearc/conform.nvim",
+	-- Adding support for quick comment
+	"numToStr/Comment.nvim",
 }
 
 opts = {}

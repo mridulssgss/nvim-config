@@ -6,6 +6,9 @@ require("conform").setup({
 		-- Use a sub-list to run only the first available formatter
 		-- javascript = { { "prettierd", "prettier" } },
 		cpp = { "clang-format" },
+		go = { "gci", "golines", "gofumpt" },
+		json = { "fixjson" },
+		yaml = { "yamlfix" },
 	},
 })
 
