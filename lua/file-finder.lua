@@ -1,5 +1,18 @@
 -- integrating with ast-grep
-
+-- require("telescope").setup({
+-- 	extensions = {
+-- 		ast_grep = {
+-- 			command = {
+-- 				"ast-grep",
+-- 				"--json=stream",
+-- 			},
+-- 			grep_open_files = false,
+-- 			lang = nil,
+-- 		},
+-- 	},
+-- })
+--
+-- require("telescope").load_extension("ast_grep")
 -- Telescope plugins
 
 local builtin = require("telescope.builtin")

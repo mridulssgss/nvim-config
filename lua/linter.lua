@@ -1,7 +1,9 @@
 require("lint").linters_by_ft = {
 	lua = { "selene" },
 	cpp = { "cpplint" },
+	c = { "cpplint" },
 	python = { "flakeheaven" },
+	markdown = { "markdownlint" },
 }
 vim.api.nvim_exec(
 	[[
@@ -12,11 +14,6 @@ vim.api.nvim_exec(
 ]],
 	true
 )
-
--- setting up linter
-require("lint").linters_by_ft = {
-	markdown = { "vale" },
-}
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
