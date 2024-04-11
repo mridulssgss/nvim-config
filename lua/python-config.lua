@@ -2,3 +2,4 @@
 local lspconfig = require("lspconfig")
 -- setting up clangd
 lspconfig.pyright.setup({})
+lspconfig.pylsp.setup({})

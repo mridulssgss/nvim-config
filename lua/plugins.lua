@@ -127,6 +127,7 @@ plugins = {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter", -- optional
 			"nvim-tree/nvim-web-devicons", -- optional
+			"tadmccorkle/markdown.nvim",
 		},
 	},
 	-- Adding support for test
@@ -152,6 +153,12 @@ plugins = {
 		ft = { "markdown" },
 		build = function()
 			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
+		"smjonas/inc-rename.nvim",
+		config = function()
+			require("inc_rename").setup()
 		end,
 	},
 }
