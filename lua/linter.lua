@@ -1,7 +1,7 @@
 require("lint").linters_by_ft = {
 	lua = { "selene" },
 	cpp = { "cpplint" },
-	c = { "cpplint" },
+	c = { "cppcheck" },
 	markdown = { "markdownlint" },
 }
 vim.api.nvim_exec(

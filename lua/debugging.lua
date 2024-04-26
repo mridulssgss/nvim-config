@@ -41,7 +41,7 @@ dap.configurations.go = {
 dap.adapters.gdb = {
 	type = "executable",
 	command = "gdb",
-	args = { "-i", "dap" },
+	args = { "--interpreter=dap" },
 }
 
 dap.configurations.c = {
@@ -53,7 +53,7 @@ dap.configurations.c = {
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 		end,
 		cwd = "${workspaceFolder}",
-		stopAtBeginningOfMainSubprogram = true,
+		stopAtBeginningOfMainSubprogram = false,
 	},
 }
 

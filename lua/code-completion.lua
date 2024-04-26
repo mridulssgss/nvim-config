@@ -15,7 +15,7 @@ cmp.setup({
 		-- Tab to go to the next suggestion
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		-- CTRL+SHIFT+f to scroll backwards in description
-		["<C-S-f>"] = cmp.mapping.scroll_docs(-4),
+		["<C-F"] = cmp.mapping.scroll_docs(-4),
 		-- CTRL+F to scroll forwards in the description
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		-- CTRL+SPACE to bring up completion at current Cursor location
@@ -45,11 +45,11 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
 	-- add formating of the different sources
 	formatting = {
 		fields = { "menu", "abbr", "kind" },
@@ -64,5 +64,4 @@ cmp.setup({
 			return item
 		end,
 	},
-
 })
