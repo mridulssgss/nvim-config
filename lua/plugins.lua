@@ -83,6 +83,7 @@ plugins = {
 		event = "BufReadPre",
 		config = function()
 			require("gitsigns").setup({
+				debug_mode = true,
 				signs = {
 					add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
 					change = {
