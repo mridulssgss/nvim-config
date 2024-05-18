@@ -121,6 +121,7 @@ plugins = {
 		config = function()
 			require("lspsaga").setup({
 				lightbulb = {
+					enable = false,
 					sign = false,
 				},
 			})
