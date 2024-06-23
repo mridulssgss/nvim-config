@@ -157,6 +157,7 @@ plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
+	"alex-laycalvert/flashcards.nvim",
 }
 
 opts = {}

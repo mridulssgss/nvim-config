@@ -5,7 +5,6 @@ require("plugins")
 require("colorscheme")
 -- commenting first thing to do
 require("comment")
-require("comment")
 require("mason-config")
 require("go-config")
 require("code-completion")

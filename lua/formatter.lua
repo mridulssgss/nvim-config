@@ -5,8 +5,8 @@ require("conform").setup({
 		python = { "autoflake", "autopep8" },
 		-- Use a sub-list to run only the first available formatter
 		-- javascript = { { "prettierd", "prettier" } },
-		cpp = { "clang-format" },
 		c = { "clang-format" },
+		cpp = { "clang-format" },
 		go = { "gci", "golines", "gofumpt" },
 		json = { "fixjson" },
 		yaml = { "yamlfix" },

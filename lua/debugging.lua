@@ -37,17 +37,19 @@ dap.configurations.go = {
 }
 
 -- Support for C/C++
--- Add adapter to delve
-dap.adapters.gdb = {
-	type = "executable",
-	command = "gdb",
-	args = { "--interpreter=dap" },
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = "codelldb",
+		args = { "--port", "${port}" },
+	},
 }
 
 dap.configurations.c = {
 	{
 		name = "Launch",
-		type = "gdb",
+		type = "codelldb",
 		request = "launch",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
@@ -60,13 +62,13 @@ dap.configurations.c = {
 dap.configurations.cpp = {
 	{
 		name = "Launch",
-		type = "gdb",
+		type = "codelldb",
 		request = "launch",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 		end,
 		cwd = "${workspaceFolder}",
-		stopAtBeginningOfMainSubprogram = false,
+		stopOnEntry = false,
 	},
 }
 
@@ -129,15 +131,15 @@ local dapui = require("dapui")
 dapui.setup()
 
 -- dap fires events, we can listen on them to open UI on certain events
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
-end
+-- dap.listeners.after.event_initialized["dapui_config"] = function()
+-- 	dapui.open()
+-- end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+-- 	dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+-- 	dapui.close()
+-- end
 
 local map = vim.api.nvim_set_keymap
 
