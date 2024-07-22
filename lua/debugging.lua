@@ -41,8 +41,12 @@ dap.adapters.codelldb = {
 	type = "server",
 	port = "${port}",
 	executable = {
-		command = "codelldb",
+		-- CHANGE THIS to your path!
+		command = "/home/mridul/.config/nvim/extension/adapter/codelldb",
 		args = { "--port", "${port}" },
+
+		-- On windows you may have to uncomment this:
+		detached = false,
 	},
 }
 
@@ -61,7 +65,7 @@ dap.configurations.c = {
 
 dap.configurations.cpp = {
 	{
-		name = "Launch",
+		name = "Launch file",
 		type = "codelldb",
 		request = "launch",
 		program = function()
