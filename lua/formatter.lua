@@ -10,6 +10,7 @@ require("conform").setup({
 		go = { "gci", "golines", "gofumpt" },
 		json = { "fixjson" },
 		yaml = { "yamlfix" },
+		rust = { "rustfmt" },
 	},
 })
 
