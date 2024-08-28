@@ -78,43 +78,7 @@ plugins = {
 	},
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- Setting up gitsigns for git decoration and git blame. See docs: https://github.com/lewis6991/gitsigns.nvim
-	{
-		"lewis6991/gitsigns.nvim",
-		event = "BufReadPre",
-		config = function()
-			require("gitsigns").setup({
-				auto_attach = true,
-				signs = {
-					add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-					change = {
-						hl = "GitSignsChange",
-						text = "│",
-						numhl = "GitSignsChangeNr",
-						linehl = "GitSignsChangeLn",
-					},
-					delete = {
-						hl = "GitSignsDelete",
-						text = "_",
-						numhl = "GitSignsDeleteNr",
-						linehl = "GitSignsDeleteLn",
-					},
-					topdelete = {
-						hl = "GitSignsDelete",
-						text = "‾",
-						numhl = "GitSignsDeleteNr",
-						linehl = "GitSignsDeleteLn",
-					},
-					changedelete = {
-						hl = "GitSignsChange",
-						text = "~",
-						numhl = "GitSignsChangeNr",
-						linehl = "GitSignsChangeLn",
-					},
-					untracked = { hl = "GitSignsAdd", text = "┆", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-				},
-			})
-		end,
-	},
+	"lewis6991/gitsigns.nvim",
 	-- Add lsp-saga for ide like features. See docs: https://nvimdev.github.io/lspsaga/
 	{
 		"nvimdev/lspsaga.nvim",
@@ -129,7 +93,6 @@ plugins = {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter", -- optional
 			"nvim-tree/nvim-web-devicons", -- optional
-			"tadmccorkle/markdown.nvim",
 		},
 	},
 	-- Adding support for test
