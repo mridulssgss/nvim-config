@@ -11,6 +11,7 @@ require("conform").setup({
 		json = { "fixjson" },
 		yaml = { "yamlfix" },
 		rust = { "rustfmt" },
+		ocaml = { "ocamlformat" },
 	},
 })
 

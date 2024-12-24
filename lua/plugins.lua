@@ -14,6 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 plugins = {
 	-- themes
 	"EdenEast/nightfox.nvim",
+	-- {
+	--		"folke/tokyonight.nvim",
+	--		lazy = false,
+	--		priority = 1000,
+	--		opts = {},
+	--	},
 	-- Package manager
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
@@ -120,7 +126,22 @@ plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	"alex-laycalvert/flashcards.nvim",
+	--	"alex-laycalvert/flashcards.nvim",
+	{
+		"monkoose/nvlime",
+		dependencies = { "monkoose/parsley" },
+		nvlime_config = {
+			cmp = { enabled = true },
+		},
+	},
+	{
+		"xeluxee/competitest.nvim",
+		dependencies = "MunifTanjim/nui.nvim",
+		config = function()
+			require("competitest").setup()
+		end,
+	},
+	"gpanders/nvim-parinfer",
 }
 
 opts = {}

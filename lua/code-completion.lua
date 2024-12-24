@@ -5,8 +5,10 @@
 vim.opt.completeopt = { "menuone", "noselect", "noinsert", "preview" }
 -- shortmess is used to avoid excessive messages
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
-
 local cmp = require("cmp")
+vim.g.nvlime_config = {
+	cmp = { enabled = true },
+}
 cmp.setup({
 
 	mapping = {
@@ -32,6 +34,7 @@ cmp.setup({
 
 	-- sources are the installed sources that can be used for code suggestions
 	sources = {
+		{ name = "nvlime", keyword_length = 2 },
 		{ name = "path" },
 		{ name = "nvim_lsp", keyword_length = 1 },
 		{ name = "nvim_lsp_signature_help" },
@@ -55,6 +58,7 @@ cmp.setup({
 		fields = { "menu", "abbr", "kind" },
 		format = function(entry, item)
 			local menu_icon = {
+				nvlime = "%",
 				nvim_lsp = "λ",
 				vsnip = "⋗",
 				buffer = "b",
@@ -67,5 +71,5 @@ cmp.setup({
 })
 
 -- If you want insert `(` after select function or method item
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

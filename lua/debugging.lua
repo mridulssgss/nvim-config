@@ -10,7 +10,9 @@ dap.adapters.delve = {
 		args = { "dap", "-l", "127.0.0.1:${port}" },
 	},
 }
-
+local mason_registry = require("mason-registry")
+local codelldb_root = mason_registry.get_package("codelldb"):get_install_path() .. "/extension/"
+local codelldb_path = codelldb_root .. "adapter/codelldb"
 -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
 dap.configurations.go = {
 	{
@@ -42,7 +44,7 @@ dap.adapters.codelldb = {
 	port = "${port}",
 	executable = {
 		-- CHANGE THIS to your path!
-		command = "/home/mridul/.config/nvim/extension/adapter/codelldb",
+		command = codelldb_path,
 		args = { "--port", "${port}" },
 
 		-- On windows you may have to uncomment this:
