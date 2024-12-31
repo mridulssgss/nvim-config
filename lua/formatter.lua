@@ -12,6 +12,9 @@ require("conform").setup({
 		yaml = { "yamlfix" },
 		rust = { "rustfmt" },
 		ocaml = { "ocamlformat" },
+		html = { "htmlbeautifier" },
+		javascript = { "prettierd" },
+		javascriptreact = { "prettierd" },
 	},
 })
 

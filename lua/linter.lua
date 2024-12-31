@@ -5,6 +5,7 @@ require("lint").linters_by_ft = {
 	python = { "pylint", "mypy" },
 	markdown = { "markdownlint" },
 	make = { "checkmake" },
+	html = { "htmlhint" },
 }
 vim.api.nvim_exec(
 	[[
