@@ -1,3 +1,3 @@
 vim.g.nvlime_config = {
-    cmp = {enabled = true}
+	cmp = { enabled = false },
 }

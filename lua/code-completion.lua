@@ -34,7 +34,7 @@ cmp.setup({
 
 	-- sources are the installed sources that can be used for code suggestions
 	sources = {
-		{ name = "nvlime" },
+		{ name = "nvlime-1", keyword_length = 1 },
 		{ name = "path" },
 		{ name = "nvim_lsp", keyword_length = 1 },
 		{ name = "nvim_lsp_signature_help" },
@@ -58,7 +58,7 @@ cmp.setup({
 		fields = { "menu", "abbr", "kind" },
 		format = function(entry, item)
 			local menu_icon = {
-				nvlime = "%",
+				["nvlime-1"] = "%",
 				nvim_lsp = "λ",
 				nvim_lua = "l",
 				vsnip = "⋗",
